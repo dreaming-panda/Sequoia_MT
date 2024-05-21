@@ -31,6 +31,7 @@ parser.add_argument('--M', type=int, default=256, help='max length')
 parser.add_argument('--Mode', type=str, default="greedy", help='tree mode')
 parser.add_argument('--offloading', action='store_true')
 parser.add_argument('--bf16', action='store_true')
+parser.add_argument('--vocab', type=int, default=32000, help='vocab size')
 args = parser.parse_args()
 print(args)
 def setup_seed(seed):
