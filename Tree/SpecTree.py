@@ -153,7 +153,7 @@ class SpecTree(Tree):
             if p[token] > r * q[token]:
                 return (pos + (self.ground_truth_len - 1), None)
             else:
-                p = self.residual_graph(p, q)
+                p = get_residual(p, q)
                 draft_logits[token] = torch.finfo(self.dtype).min
         return (-1, p)
 

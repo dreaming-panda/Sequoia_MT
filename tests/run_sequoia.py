@@ -114,7 +114,7 @@ def simulation_fast(target_model : GraphInferenceEngineTG, draft_model: GraphInf
             t1 = time.time()
             pos = 0
             generated_ids = []
-            while input_ids.shape[1] < 192 and terminate == False:
+            while input_ids.shape[1] < 256 and terminate == False:
                 spectree.construct_grow_map()
                 valid_tokens, draft_kv_len, target_kv_len, terminate = spectree.verify()
                 
@@ -315,10 +315,10 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str, help='model', default="meta-llama/Llama-2-7b-hf")
     parser.add_argument('--target', type=str, help='target model', default="meta-llama/Llama-2-70b-hf")
     parser.add_argument("--data_root", type=str, default="dataset/")
-    parser.add_argument("--M", type=int, default=1024)
-    parser.add_argument('--growmap', type=str, default="../L40_growmaps/L40-CNN-7b-70b-stochastic.pt", help='growmap path')
+    parser.add_argument("--M", type=int, default=1536)
+    parser.add_argument('--growmap', type=str, default="../L40_growmaps/L40-CNN-8b-70b-stochastic.pt", help='growmap path')
     parser.add_argument('--T', type=float, default=0.6, help='temperature')
-    parser.add_argument('--P', type=float, default=0.9, help='top_p')
+    parser.add_argument('--P', type=float, default=1.0, help='top_p')
     parser.add_argument('--cudagraph', action='store_true')
     parser.add_argument('--seed', type=int, default=17, help='random seed')
     parser.add_argument('--Mode', type=str, default="spec", help='tree mode')
