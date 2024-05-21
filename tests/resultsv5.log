@@ -1,0 +1,2 @@
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='openwebtext', growmap='../L40_growmaps/L40-CNN-8b-70b-stochastic.pt', start=0, end=100, T=0.6, P=1.0, M=1536, seed=17, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+1024

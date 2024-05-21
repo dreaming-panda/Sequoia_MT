@@ -1,0 +1,17 @@
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='openwebtext', growmap='../L40_growmaps/L40-OpenWebText-7b-70b-stochastic.pt', start=0, end=100, T=0.6, P=1.0, M=1024, seed=17, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :4869.00516s, latency :0.70058s, decoding step: 6950, large model step: 797, 8.720200752823086
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='openwebtext', growmap='../L40_growmaps/L40-OpenWebText-7b-70b-greedy.pt', start=0, end=100, T=0.6, P=1.0, seed=17, M=1024, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :4870.84940s, latency :0.70993s, decoding step: 6861, large model step: 804, 8.533582089552239
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='cnn', growmap='../L40_growmaps/L40-C4-7b-70b-stochastic.pt', start=0, end=100, T=0.6, P=1.0, M=1024, seed=17, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :4843.91594s, latency :0.70344s, decoding step: 6886, large model step: 782, 8.805626598465473
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='cnn', growmap='../L40_growmaps/L40-C4-7b-70b-greedy.pt', start=0, end=100, T=0.6, P=1.0, seed=17, M=1024, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :4779.97156s, latency :0.69015s, decoding step: 6926, large model step: 770, 8.994805194805195
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='openwebtext', growmap='../L40_growmaps/L40-C4-7b-70b-stochastic.pt', start=0, end=100, T=0.6, P=1.0, M=1024, seed=17, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768total time :4840.27713s, latency :0.71066s, decoding step: 6811, large model step: 781, 8.720870678617157
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='openwebtext', growmap='../L40_growmaps/L40-C4-7b-70b-greedy.pt', start=0, end=100, T=0.6, P=1.0, seed=17, M=1024, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :5046.34348s, latency :0.72380s, decoding step: 6972, large model step: 816, 8.544117647058824

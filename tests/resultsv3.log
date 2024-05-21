@@ -1,0 +1,12 @@
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='cnn', growmap='../L40_growmaps/L40-CNN-7b-70b-stochastic.pt', start=0, end=100, T=0.6, P=0.9, M=1024, seed=17, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :8401.42409s, latency :0.69006s, decoding step: 12175, large model step: 1378, 8.835268505079826
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='openwebtext', growmap='../L40_growmaps/L40-OpenWebText-7b-70b-stochastic.pt', start=0, end=100, T=0.6, P=0.9, M=1024, seed=17, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :735.72535s, latency :2.73504s, decoding step: 269, large model step: 120, 2.2416666666666667
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='cnn', growmap='../L40_growmaps/L40-CNN-7b-70b-greedy.pt', start=0, end=100, T=0.6, P=0.9, seed=17, M=1024, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :8512.34873s, latency :0.64307s, decoding step: 13237, large model step: 1414, 9.361386138613861
+Namespace(model='meta-llama/Meta-Llama-3-8B-Instruct', target='meta-llama/Meta-Llama-3-70B-Instruct', dataset='openwebtext', growmap='../L40_growmaps/L40-OpenWebText-7b-70b-greedy.pt', start=0, end=100, T=0.6, P=0.9, seed=17, M=1024, Mode='greedy', offloading=True, bf16=True, vocab=128256)
+768
+total time :664.35406s, latency :2.56507s, decoding step: 259, large model step: 110, 2.3545454545454545
