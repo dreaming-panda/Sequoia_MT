@@ -14,7 +14,7 @@ import argparse
 from Tree.SpecTree import SpecTree
 from Tree.GreedyTree import GreedyTree
 import time
-from utils import get_sampling_logits, _make_causal_mask, cuda_graph_for_residual, cuda_graph_for_sampling_without_replacement
+from utils import get_sampling_logits, _make_causal_mask, cuda_graph_for_residual, cuda_graph_for_sampling_without_replacement,cuda_graph_for_sampling_argmax
 from Engine.Engine import GraphInferenceEngine, GraphInferenceEngineTG
 from Engine.offload_engine import OffloadEngine
 import random
@@ -269,7 +269,7 @@ def main(args):
         for i in range(draft_step - 1):
             idx_len = len(idx_lists[i])
             num_samples = max(branch_lists[i])
-            sampling_callables[i] = cuda_graph_for_sampling_without_replacement(
+            sampling_callables[i] = cuda_graph_for_sampling_argmax(
                 max_length=args.M, idx_len=idx_len, num_samples=num_samples,
                 temperature=args.T, tree_size=tree_size, dim=args.vocab) 
         for i in range(draft_step - 1):
