@@ -110,7 +110,8 @@ def simulation_fast(target_model : GraphInferenceEngineTG, draft_model: GraphInf
                                     position_ids = position_ids,
                                     residual_graph = residual_graph,
                                     sampling_callables=sampling_callables,
-                                    sample_gather_indices = sample_gather_indices, vocab_size=vocab_size)
+                                    sample_gather_indices = sample_gather_indices, vocab_size=vocab_size,
+                                    dtype=dtype)
             torch.cuda.synchronize()
             t1 = time.time()
             pos = 0
