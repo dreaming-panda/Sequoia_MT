@@ -12,7 +12,7 @@ import argparse
 from data_converter import convert_wiki_dataset, convert_cnn_dataset, convert_c4_dataset_eval
 import argparse
 from Tree.SpecTree import SpecTree
-
+from Tree.GreedyTree import GreedyTree
 import time
 from utils import get_sampling_logits, _make_causal_mask, cuda_graph_for_residual, cuda_graph_for_sampling_without_replacement
 from Engine.Engine import GraphInferenceEngine, GraphInferenceEngineTG
@@ -101,7 +101,7 @@ def simulation_fast(target_model : GraphInferenceEngineTG, draft_model: GraphInf
             draft_kv_len = 0
             target_kv_len = 0
             attn_mask.fill_(torch.finfo(dtype).min)
-            spectree = SpecTree(prefix=input_ids.squeeze(0), device='cuda:0', temperature=T,
+            spectree = GreedyTree(prefix=input_ids.squeeze(0), device='cuda:0', temperature=T,
                                     top_p=top_p,
                                     draft_kv_len=draft_kv_len, target_kv_len=target_kv_len,
                                     draft_model_engine=draft_model, target_model_engine=target_model, max_length=max_length, grow_map=grow_map,
