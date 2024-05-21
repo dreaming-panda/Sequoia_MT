@@ -75,7 +75,7 @@ def simulation_fast(target_model : GraphInferenceEngineTG, draft_model: GraphInf
                                     residual_graph = residual_graph,
                                     sampling_callables=sampling_callables,
                                     sample_gather_indices = sample_gather_indices,
-                                    dtype=dtype)
+                                    dtype=dtype,vocab_size=args.vocab)
             torch.cuda.synchronize()
             t1 = time.time()
             while input_ids.shape[1] < 256 and terminate == False:
@@ -253,7 +253,7 @@ else:
         target_model =  GraphInferenceEngineTG(max_length=args.M, model_name_or_path = args.target, dtype = dtype, device="cuda:0", offloading=args.offloading)
     graph_capture_list = list(range(1, 129))
     draft_model.initialize_cuda_graph(graph_capture_list)
-    residual_graph = cuda_graph_for_residual()
+    residual_graph = cuda_graph_for_residual(dtype=dtype, dim=args.vocab)
     path = args.growmap
     grow_map = torch.load(path)
 
