@@ -123,7 +123,7 @@ def simulation_fast(target_model : GraphInferenceEngineTG, draft_model: GraphInf
                 num_large_model_steps += 1
                 input_ids = valid_tokens.unsqueeze(0)
                 
-                if (input_ids[0][-1] == 0) or (input_ids[0][-1] == 2): terminate = True
+                if (input_ids[0][-1] == 128009) or (input_ids[0][-1] == 128001): terminate = True
                 
                 generated_ids.extend(input_ids[0][input_begin_pos:].tolist())
 
@@ -246,7 +246,7 @@ def main(args):
 
     
     if args.Mode == 'spec':
-        draft_model = GraphInferenceEngine(max_length=args.M, model_name_or_path = args.model, dtype = torch.float16, device="cuda:0")
+        draft_model = GraphInferenceEngine(max_length=args.M, model_name_or_path = args.model, dtype = torch.bfloat16, device="cuda:0")
         residual_graph = None
         path = args.growmap
         grow_map = torch.load(path)
@@ -281,7 +281,7 @@ def main(args):
             ith_gather_list = torch.cat(ith_gather_list)
             sample_gather_indices[i] = ith_gather_list
     
-    target_model = OffloadEngine(max_length=args.M, model_name_or_path = args.target, dtype = torch.float16, device="cuda:0", stay_layers=args.staylayer)
+    target_model = OffloadEngine(max_length=args.M, model_name_or_path = args.target, dtype = torch.bfloat16, device="cuda:0", stay_layers=args.staylayer)
     test_filepath = os.path.join(args.data_root, "mt_bench.jsonl")
     print(f"Loading data from {test_filepath} ...")
 
