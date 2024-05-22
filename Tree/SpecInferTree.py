@@ -105,7 +105,7 @@ class SpecInferTree(Tree):
         sampling_q = softmax(sampling_logits / self.temperature, dim=-1)
         
             
-        new_tokens_set = sampling_q.multinomial(num_samples=max_branch, replacement=True).flatten()
+        new_tokens_set = sampling_q.float().multinomial(num_samples=max_branch, replacement=True).flatten()
         self.tokens[self.num_nodes: self.num_nodes + total_branch] = new_tokens_set[self.sample_gather_indices[grow_step]]
         if benchmark:
                     torch.cuda.synchronize()
